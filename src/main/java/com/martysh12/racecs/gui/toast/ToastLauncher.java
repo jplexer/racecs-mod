@@ -6,7 +6,6 @@ import com.martysh12.racecs.net.StationManager;
 import com.martysh12.racecs.net.TeamManager;
 import net.minecraft.client.toast.ToastManager;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 
 import java.util.Objects;
 import java.util.UUID;
@@ -22,12 +21,12 @@ public class ToastLauncher {
             Text toastDescription;
             boolean isPlayer1LocalPlayer = isLocalPlayerName(player1);
             if (isPlayer1LocalPlayer || isLocalPlayerName(player2))
-                toastDescription = new TranslatableText("toast.collision.desc.you", isPlayer1LocalPlayer ? player2 : player1);
+                toastDescription = Text.translatable("toast.collision.desc.you", isPlayer1LocalPlayer ? player2 : player1);
             else
-                toastDescription = new TranslatableText("toast.collision.desc.other", player1, player2);
+                toastDescription = Text.translatable("toast.collision.desc.other", player1, player2);
 
             toastManager.add(new RaceToast(
-                    new TranslatableText("toast.collision.title"),
+                    Text.translatable("toast.collision.title"),
                     toastDescription,
                     RaceToast.Background.RED,
                     RaceToast.Icon.COLLISION,
@@ -46,18 +45,18 @@ public class ToastLauncher {
             RaceToast.TitleColor titleColor;
 
             if (isLocalPlayerName(user)) {
-                toastDescription = new TranslatableText("toast.arrival.desc.you", stationFullName);
+                toastDescription = Text.translatable("toast.arrival.desc.you", stationFullName);
                 toastIcon = RaceToast.Icon.CHECKMARK;
                 titleColor = RaceToast.TitleColor.GREEN;
             }
             else {
-                toastDescription = new TranslatableText("toast.arrival.desc.other", user, stationFullName);
+                toastDescription = Text.translatable("toast.arrival.desc.other", user, stationFullName);
                 toastIcon = RaceToast.Icon.ARRIVAL;
                 titleColor = RaceToast.TitleColor.YELLOW;
             }
 
             toastManager.add(new RaceToast(
-                    new TranslatableText("toast.arrival.title"),
+                    Text.translatable("toast.arrival.title"),
                     toastDescription,
                     RaceToast.Background.GREEN,
                     toastIcon,
@@ -74,12 +73,12 @@ public class ToastLauncher {
             RaceToast.TitleColor titleColor;
 
             if (isLocalPlayerName(username)) {
-                toastTitle = new TranslatableText("toast.completion.title.you");
-                toastDescription = new TranslatableText("toast.completion.desc.you", place);
+                toastTitle = Text.translatable("toast.completion.title.you");
+                toastDescription = Text.translatable("toast.completion.desc.you", place);
                 titleColor = RaceToast.TitleColor.GREEN;
             } else {
-                toastTitle = new TranslatableText("toast.completion.title.other");
-                toastDescription = new TranslatableText("toast.completion.desc.other", username, place);
+                toastTitle = Text.translatable("toast.completion.title.other");
+                toastDescription = Text.translatable("toast.completion.desc.other", username, place);
                 titleColor = RaceToast.TitleColor.YELLOW;
             }
 
@@ -101,16 +100,16 @@ public class ToastLauncher {
             RaceToast.TitleColor titleColor;
 
             if (isLocalPlayerName(player)) {
-                toastTitle = new TranslatableText("toast.completion_partial.title.you");
-                toastDescription = new TranslatableText("toast.completion_partial.desc.you", remaining);
+                toastTitle = Text.translatable("toast.completion_partial.title.you");
+                toastDescription = Text.translatable("toast.completion_partial.desc.you", remaining);
                 titleColor = RaceToast.TitleColor.GREEN;
             } else if (isLocalPlayerOnTeam(team)) {
-                toastTitle = new TranslatableText("toast.completion_partial.title.team");
-                toastDescription = new TranslatableText("toast.completion_partial.desc.team", player, remaining);
+                toastTitle = Text.translatable("toast.completion_partial.title.team");
+                toastDescription = Text.translatable("toast.completion_partial.desc.team", player, remaining);
                 titleColor = RaceToast.TitleColor.GREEN;
             } else {
-                toastTitle = new TranslatableText("toast.completion_partial.title.other");
-                toastDescription = new TranslatableText("toast.completion_partial.desc.other", player, remaining, team);
+                toastTitle = Text.translatable("toast.completion_partial.title.other");
+                toastDescription = Text.translatable("toast.completion_partial.desc.other", player, remaining, team);
                 titleColor = RaceToast.TitleColor.YELLOW;
             }
 
@@ -132,16 +131,16 @@ public class ToastLauncher {
             RaceToast.TitleColor titleColor;
 
             if (isLocalPlayerName(player)) {
-                toastTitle = new TranslatableText("toast.completion_team.title.you");
-                toastDescription = new TranslatableText("toast.completion_team.desc.you", place);
+                toastTitle = Text.translatable("toast.completion_team.title.you");
+                toastDescription = Text.translatable("toast.completion_team.desc.you", place);
                 titleColor = RaceToast.TitleColor.GREEN;
             } else if (isLocalPlayerOnTeam(team)) {
-                toastTitle = new TranslatableText("toast.completion_team.title.team");
-                toastDescription = new TranslatableText("toast.completion_team.desc.team", player, place);
+                toastTitle = Text.translatable("toast.completion_team.title.team");
+                toastDescription = Text.translatable("toast.completion_team.desc.team", player, place);
                 titleColor = RaceToast.TitleColor.GREEN;
             } else {
-                toastTitle = new TranslatableText("toast.completion_team.title.other");
-                toastDescription = new TranslatableText("toast.completion_team.desc.other", player, team, place);
+                toastTitle = Text.translatable("toast.completion_team.title.other");
+                toastDescription = Text.translatable("toast.completion_team.desc.other", player, team, place);
                 titleColor = RaceToast.TitleColor.YELLOW;
             }
 
